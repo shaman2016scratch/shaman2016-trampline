@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 export default async (req, res) => {
   const { url } = req.query;
-  if (!url) return res.status(400).json({ error: 'Missing URL parameter. Example: /url/example.com' });
+  if (!url) return res.status(400).json({ error: 'Missing URL parameter. Example: /other/example.com' });
   try {
     let decodedUrl;
     try { decodedUrl = decodeURIComponent(url); } catch (e) { decodedUrl = url; }
