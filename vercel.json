@@ -1,1 +1,15 @@
-
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/scratch.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/scratch/(.*)",
+      "dest": "/api/scratch.js?path=$1"
+    }
+  ]
+}
