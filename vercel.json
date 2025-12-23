@@ -25,7 +25,11 @@
     },
     {
       "src": "/penguinmod/(.*)",
-      "dest": "/api/penguidmod.mjs?path=$1"
+      "dest": "/api/penguinmod.mjs?path=$1"
+    },
+    {
+      "src": "/other/(.*)",
+      "dest": "/api/url.mjs?path=$1"
     }
   ]
 }
