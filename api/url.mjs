@@ -73,12 +73,29 @@ export default async (req, res) => {
         return res.status(204).send();
       }
 
-      const proxyBase = 'https://shaman2016-trampline.vercel.app/other/';
+      const baseDomain = url.split('/')[0];
+
+      const transformLink = (link) => {
+        if (link.startsWith('http://') || link.startsWith('https://')) {
+          return `/other/${link.replace(/^(https?:\/\/)/, '')}`;
+        } else if (link.startsWith('/')) {
+          return `/other/${baseDomain}${link}`;
+        } else {
+          return `/other/${url}/${link}`;
+        }
+      };
+
       const modifiedText = text
-        .replace(/(src=")(https?:\/\/[^"]+)/gi, `$1${proxyBase}$2`)
-        .replace(/(href=")(https?:\/\/[^"]+)/gi, `$1${proxyBase}$2`)
-        .replace(/(')(https?:\/\/[^']+)/gi, `$1${proxyBase}$2`)
-        .replace(/(")(https?:\/\/[^"]+)/gi, `$1${proxyBase}$2`);
+        .replace(/(src=")([^"]+)/gi, (match, p1, p2) => `${p1}${transformLink(p2)}`)
+        .replace(/(href=")([^"]+)/gi, (match, p1, p2) => `${p1}${transformLink(p2)}`)
+        .replace(/(')([^']+)/gi, (match, p1, p2) => {
+          if (p2.match(/^(src|href)="/)) return match;
+          return `${p1}${transformLink(p2)}`;
+        })
+        .replace(/(")([^"]+)/gi, (match, p1, p2) => {
+          if (p2.match(/^(src|href)="/)) return match;
+          return `${p1}${transformLink(p2)}`;
+        });
 
       response.headers.forEach((value, key) => {
         const lowerKey = key.toLowerCase();
