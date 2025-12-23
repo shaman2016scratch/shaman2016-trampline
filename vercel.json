@@ -4,6 +4,14 @@
     {
       "src": "api/scratch.mjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "api/github.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/penguinmod.mjs",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
