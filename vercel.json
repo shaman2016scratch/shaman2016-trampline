@@ -18,6 +18,14 @@
     {
       "src": "/scratch/(.*)",
       "dest": "/api/scratch.mjs?path=$1"
+    },
+    {
+      "src": "/github/(.*)",
+      "dest": "/api/github.mjs?path=$1"
+    },
+    {
+      "src": "/penguinmod/(.*)",
+      "dest": "/api/penguidmod.mjs?path=$1"
     }
   ]
 }
