@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
 
-
 export default async (req, res) => {
   const { url } = req.query;
 
@@ -56,34 +55,34 @@ export default async (req, res) => {
         return res.status(204).send();
       }
 
-      const baseDomain = url.split('/')[0].replace(/^https?:\/\//, '');
-
+      const baseDomain = url
+        .replace(/^https?:\/\//, '')
+        .split('/')[0]
+        .trim()
+        .toLowerCase();
 
       const transformLink = (link) => {
         if (link.startsWith('/other/')) {
           return link;
         }
-        if (link.startsWith('http://') || link.startsWith('https://')) {
+
+        if (/^https?:\/\//i.test(link)) {
           const cleaned = link.replace(/^(https?:\/\/)/, '');
           return `/other/${cleaned}`;
         }
+
         if (link.startsWith('/')) {
-          return `/other/${baseDomain}${link}`;
+          const path = link.replace(/^\//, '');
+          return `/other/${baseDomain}/${path}`;
         }
+
         return `/other/${baseDomain}/${link}`;
       };
 
       const modifiedText = text
-        .replace(/(src=")([^"]+)/gi, (match, p1, p2) => `${p1}${transformLink(p2)}`)
-        .replace(/(href=")([^"]+)/gi, (match, p1, p2) => `${p1}${transformLink(p2)}`)
-        .replace(/(')([^']+)/gi, (match, p1, p2) => {
-          if (p2.match(/^(src|href)="/)) return match;
-          return `${p1}${transformLink(p2)}`;
-        })
-        .replace(/(")([^"]+)/gi, (match, p1, p2) => {
-          if (p2.match(/^(src|href)="/)) return match;
-          return `${p1}${transformLink(p2)}`;
-        });
+        .replace(/(src=")([^"]*?)("|')/gi, (match, p1, p2, p3) => `${p1}${transformLink(p2)}${p3}`)
+        .replace(/(href=")([^"]*?)("|')/gi, (match, p1, p2, p3) => `${p1}${transformLink(p2)}${p3}`);
+
 
       response.headers.forEach((value, key) => {
         const lowerKey = key.toLowerCase();
