@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-module.exports = async (req, res) => {
+export default = async (req, res) => {
   const { path } = req.query;
 
   if (!path) {
