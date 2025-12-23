@@ -11,7 +11,7 @@ export default async (req, res) => {
     const response = await fetch(decodedUrl);
     if (!response.ok) return res.status(response.status).json({ error: `Failed to fetch: ${response.statusText}`, status: response.status, requestedUrl: decodedUrl });
     const text = await response.text();
-    const proxyBase = 'https://shaman2016-trampline.vercel.app/url/';
+    const proxyBase = 'https://shaman2016-trampline.vercel.app/other/';
     const modifiedText = text
       .replace(/(src=")(https?:\/\/[^"]+)/gi, `$1${proxyBase}$2`)
       .replace(/(href=")(https?:\/\/[^"]+)/gi, `$1${proxyBase}$2`)
