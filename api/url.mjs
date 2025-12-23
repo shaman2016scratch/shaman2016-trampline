@@ -6,7 +6,7 @@ export default async (req, res) => {
 
   if (!url) {
     return res.status(400).json({
-      error: 'Missing URL parameter. Example: /url/https://example.com'
+      error: 'Missing URL parameter. Example: /other/https://example.com'
     });
   }
 
