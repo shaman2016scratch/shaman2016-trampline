@@ -33,7 +33,7 @@
     },
     {
       "src": "/other/(.*)",
-      "dest": "/api/url.mjs?path=$1"
+      "dest": "/api/url.mjs?url=$1"
     }
   ]
 }
