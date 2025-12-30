@@ -2,7 +2,8 @@ import fetch from 'node-fetch';
 
 export default async (req, res) => {
   const { path } = req.query;
-  const { url_params } = req.query.split('{')[1].split('}')[0]
+  let { url_params } = req.query
+  const url_params = url_params.split('{')[1].split('}')[0]
 
   if (!path) {
     return res.status(400).json({
