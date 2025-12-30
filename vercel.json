@@ -21,7 +21,7 @@
   "routes": [
     {
       "src": "/scratch/(.*)?(.*)",
-      "dest": "/api/scratch.mjs?path=$1&url_params=$2"
+      "dest": "/api/scratch.mjs?path=$1&url_params={$2}"
     },
     {
       "src": "/github/(.*)?(.*)",
