@@ -20,20 +20,20 @@
   ],
   "routes": [
     {
-      "src": "/scratch/(.*)",
-      "dest": "/api/scratch.mjs?path=$1"
+      "src": "/scratch/(.*)?(.*)",
+      "dest": "/api/scratch.mjs?path=$1&url_params=$2"
     },
     {
-      "src": "/github/(.*)",
-      "dest": "/api/github.mjs?path=$1"
+      "src": "/github/(.*)?(.*)",
+      "dest": "/api/github.mjs?path=$1&url_params=$2"
     },
     {
-      "src": "/penguinmod/(.*)",
-      "dest": "/api/penguinmod.mjs?path=$1"
+      "src": "/penguinmod/(.*)?(.*)",
+      "dest": "/api/penguinmod.mjs?path=$1&url_params=$2"
     },
     {
-      "src": "/other/(.*)",
-      "dest": "/api/url.mjs?url=$1"
+      "src": "/other/(.*)?(.*)",
+      "dest": "/api/url.mjs?url=$1&params=$2"
     }
   ]
 }
