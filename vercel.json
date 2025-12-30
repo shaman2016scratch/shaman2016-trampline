@@ -24,15 +24,15 @@
       "dest": "/api/scratch.mjs?path=$1"
     },
     {
-      "src": "/github/(.*)?(.*)",
+      "src": "/github/(.*)",
       "dest": "/api/github.mjs?path=$1"
     },
     {
-      "src": "/penguinmod/(.*)?(.*)",
+      "src": "/penguinmod/(.*)",
       "dest": "/api/penguinmod.mjs?path=$1"
     },
     {
-      "src": "/other/(.*)?(.*)",
+      "src": "/other/(.*)",
       "dest": "/api/url.mjs?url=$1"
     }
   ]
