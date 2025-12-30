@@ -10,7 +10,7 @@ export default async (req, res) => {
   }
 
   try {
-    const url = `https://api.scratch.mit.edu/${path.replace(/^\//, '')}`;
+    const url = `https://api.scratch.mit.edu/${path.replace(/^\//, '')}?${params$`;
     const response = await fetch(url);
 
     if (!response.ok) {
