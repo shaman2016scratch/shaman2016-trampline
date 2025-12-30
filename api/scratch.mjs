@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 export default async (req, res) => {
   const { path } = req.query;
-  const { params } = req.query.split('{')[1].split('}')[0]
+  const { url_params } = req.query.split('{')[1].split('}')[0]
 
   if (!path) {
     return res.status(400).json({
@@ -11,8 +11,9 @@ export default async (req, res) => {
   }
 
   try {
-    const url = `https://api.scratch.mit.edu/${path.replace(/^\//, '')}?${params}`;
-    console.log(`https://api.scratch.mit.edu/${path.replace(/^\//, '')}?${params}`)
+    const url = `https://api.scratch.mit.edu/${path.replace(/^\//, '')}?${url_params}`;
+    console.log(`https://api.scratch.mit.edu/${path.replace(/^\//, '')}?${url_params}`)
+    console.log(url_params)
     const response = await fetch(url);
 
     if (!response.ok) {
