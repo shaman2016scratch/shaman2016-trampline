@@ -16,6 +16,10 @@
     {
       "src": "api/url.mjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "api/telegram.mjs",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -34,6 +38,10 @@
     {
       "src": "/other/(.*)",
       "dest": "/api/url.mjs?url=$1"
+    },
+    {
+      "src": "/tg/(.*)",
+      "dest": "/api/telegram.mjs?url=$1"
     }
   ]
 }
