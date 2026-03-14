@@ -56,7 +56,7 @@
       "dest": "/api/dash.mjs?path=$1"
     },
     {
-      "src": "/dashAvatar/(.*)",
+      "src": "/dashImage/(.*)",
       "dest": "/api/dashAvatar.mjs?path=$1"
     }
   ]
