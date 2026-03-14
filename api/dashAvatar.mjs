@@ -1,6 +1,5 @@
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Content-Type', 'image/png')
   const { path } = req.query;
 
   if (!path) {
@@ -21,8 +20,13 @@ export default async (req, res) => {
       });
     }
 
-    const data = await response.blob();
-    res.status(200).send(data);
+    const arrayBuffer = await response.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    const contentType = response.headers.get('content-type') || 'image/png';
+    res.setHeader('Content-Type', contentType);
+
+    res.status(200).send(buffer);
   } catch (error) {
     res.status(500).json({
       error: 'Internal server error',
