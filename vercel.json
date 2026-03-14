@@ -50,6 +50,10 @@
     {
       "src": "/dash/(.*)",
       "dest": "/api/dash.mjs?path=$1"
+    },
+    {
+      "src": "/dashAvatars/(.*)",
+      "dest": "/api/dashAvatars.mjs?path=$1"
     }
   ]
 }
