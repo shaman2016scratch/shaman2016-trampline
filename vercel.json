@@ -24,6 +24,10 @@
     {
       "src": "api/dash.mjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "api/dashAvatar.mjs",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -52,8 +56,8 @@
       "dest": "/api/dash.mjs?path=$1"
     },
     {
-      "src": "/dashAvatars/(.*)",
-      "dest": "/api/dashAvatars.mjs?path=$1"
+      "src": "/dashAvatar/(.*)",
+      "dest": "/api/dashAvatar.mjs?path=$1"
     }
   ]
 }
