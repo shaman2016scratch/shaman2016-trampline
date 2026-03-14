@@ -45,11 +45,11 @@
     },
     {
       "src": "/tg/(.*)",
-      "dest": "/api/telegram.mjs?url=$1"
+      "dest": "/api/telegram.mjs?path=$1"
     },
     {
       "src": "/dash/(.*)",
-      "dest": "/api/dash.mjs?url=$1"
+      "dest": "/api/dash.mjs?path=$1"
     }
   ]
 }
