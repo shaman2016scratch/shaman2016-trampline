@@ -28,6 +28,10 @@
     {
       "src": "api/dashAvatar.mjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "api/telegramImg.mjs",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -58,6 +62,10 @@
     {
       "src": "/dashImage/(.*)",
       "dest": "/api/dashAvatar.mjs?path=$1"
+    },
+    {
+      "src": "/tgImg/(.*)",
+      "dest": "/api/telegramImg.mjs?path=$1"
     }
   ]
 }
