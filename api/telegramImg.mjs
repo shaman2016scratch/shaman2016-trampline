@@ -31,7 +31,7 @@ export default async (req, res) => {
     const arrayBuffer = await response.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    const contentType = response.headers.get('content-type') || 'image/png';
+    const contentType = response.headers.get('content-type') || 'image/jpeg';
     res.setHeader('Content-Type', contentType);
 
     res.status(200).send(buffer);
