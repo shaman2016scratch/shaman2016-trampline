@@ -25,7 +25,7 @@ export default async (req, res) => {
     const response = await fetch(finalUrl);
 
     if (!response.ok) {
-      return res.status(response.status).blob(response);
+      return res.status(response.status).json(response);
     }
 
     const arrayBuffer = await response.arrayBuffer();
