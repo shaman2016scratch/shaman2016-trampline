@@ -1,6 +1,13 @@
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   const { path } = req.query;
+   const queryParams = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(req.query)) {
+    if (key !== 'path') {
+      queryParams.append(key, value);
+    }
+  }
 
   if (!path) {
     return res.status(400).json({
