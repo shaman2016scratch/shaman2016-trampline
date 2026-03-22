@@ -17,7 +17,7 @@ export default async (req, res) => {
 
   try {
     const basePath = path.replace(/^\//, '');
-    const url = `https://api.scratch.mit.edu/${basePath}`;
+    const url = `https://api.telegram.org/${basePath}`;
     const finalUrl = queryParams.toString()
       ? `${url}?${queryParams.toString()}`
       : url;
@@ -25,7 +25,7 @@ export default async (req, res) => {
     const response = await fetch(finalUrl);
 
     if (!response.ok) {
-      return res.status(response.status).json(response);
+      return res.status(response.status).blob(response);
     }
 
     const arrayBuffer = await response.arrayBuffer();
