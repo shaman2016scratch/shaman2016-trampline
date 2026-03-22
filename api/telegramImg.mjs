@@ -13,11 +13,7 @@ export default async (req, res) => {
     const response = await fetch(url);
 
     if (!response.ok) {
-      return res.status(response.status).json({
-        error: `TG API error: ${response.statusText}`,
-        status: response.status,
-        requestedPath: path
-      });
+      return res.status(response.status).json(response);
     }
 
     const arrayBuffer = await response.arrayBuffer();
