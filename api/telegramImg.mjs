@@ -14,7 +14,7 @@ export default async (req, res) => {
 
     if (!response.ok) {
       return res.status(response.status).json({
-        error: `Dash API error: ${response.statusText}`,
+        error: `TG API error: ${response.statusText}`,
         status: response.status,
         requestedPath: path
       });
