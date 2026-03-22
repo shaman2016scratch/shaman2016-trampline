@@ -13,12 +13,15 @@ export default async (req, res) => {
   try {
     const url = `https://api.telegram.org/${path.replace(/^\//, '')}`;
     const response = await fetch(url);
+    const data = await response.json();
 
     if (!response.ok) {
-      return res.status(response.status).json(response);
+      return res.status(response.status).json({
+        response,
+        data,
+        url
+      });
     }
-
-    const data = await response.json();
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
