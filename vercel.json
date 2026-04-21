@@ -66,6 +66,14 @@
     {
       "src": "/tgImg/(.*)",
       "dest": "/api/telegramImg.mjs?path=$1"
+    },
+    {
+      "src": "/telegram/(.*)",
+      "dest": "/api/telegram.mjs?path=$1"
+    },
+    {
+      "src": "/telegramImg/(.*)",
+      "dest": "/api/telegramImg.mjs?path=$1"
     }
   ]
 }
