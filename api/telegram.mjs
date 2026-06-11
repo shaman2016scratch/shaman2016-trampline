@@ -26,7 +26,7 @@ export default async (req, res) => {
 
     let response = {}
 
-    if (req.query.useHeaders) {
+    if (req.query.useHeaders === true) {
       response = await fetch(finalUrl, {
         method: req.method,
         body: JSON.stringify(req.body)
@@ -41,7 +41,8 @@ export default async (req, res) => {
       return res.status(response.status).json({
         response,
         data,
-        url
+        url,
+        body: req.body
       });
     }
     res.status(200).json(data);
