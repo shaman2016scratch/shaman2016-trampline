@@ -42,7 +42,8 @@ export default async (req, res) => {
         response,
         data,
         url,
-        body: req.body
+        body: req.body,
+        useHeaders: req.query.useHeaders
       });
     }
     res.status(200).json(data);
