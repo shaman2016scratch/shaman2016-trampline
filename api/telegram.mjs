@@ -29,7 +29,7 @@ export default async (req, res) => {
     if (req.query.useHeaders) {
       response = await fetch(finalUrl, {
         method: req.method,
-        body: req.body+''
+        body: JSON.stringify(req.body)
       })
     } else {
       response = await fetch(finalUrl)
