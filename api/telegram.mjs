@@ -24,7 +24,10 @@ export default async (req, res) => {
       ? `${url}?${queryParams.toString()}`
       : url;
 
-    const response = await fetch(finalUrl);
+    const response = await fetch(finalUrl, {
+      method: req.method,
+      body: req.body+''
+    });
 
     const data = await response.json();
 
