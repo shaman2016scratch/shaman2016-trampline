@@ -24,12 +24,16 @@ export default async (req, res) => {
       ? `${url}?${queryParams.toString()}`
       : url;
 
-    const response = await fetch(finalUrl, {
-      method: req.method,
-      body: req.body+''
-    });
+    let response = {}
 
-    const data = await response.json();
+    if (req.query.useHeaders) {
+      response = await fetch(finalUrl, {
+        method: req.method,
+        body: req.body+''
+      })
+    } else {
+      response = await fetch(finalUrl)
+    }
 
     if (!response.ok) {
       return res.status(response.status).json({
@@ -38,6 +42,9 @@ export default async (req, res) => {
         url
       });
     }
+    
+    const data = await response.json();
+
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
