@@ -35,6 +35,8 @@ export default async (req, res) => {
       response = await fetch(finalUrl)
     }
 
+    const data = await response.json();
+
     if (!response.ok) {
       return res.status(response.status).json({
         response,
@@ -42,9 +44,6 @@ export default async (req, res) => {
         url
       });
     }
-    
-    const data = await response.json();
-
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
