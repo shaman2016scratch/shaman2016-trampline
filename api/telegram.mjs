@@ -30,7 +30,7 @@ export default async (req, res) => {
       response = await fetch(finalUrl, {
         method: req.method,
         headers: req.headers,
-        body: JSON.stringify(req.body)
+        body: req.body
       })
     } else {
       response = await fetch(finalUrl)
