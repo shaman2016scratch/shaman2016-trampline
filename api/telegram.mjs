@@ -43,7 +43,8 @@ export default async (req, res) => {
         data,
         url,
         body: req.body,
-        useHeaders: req.query.useHeaders
+        useHeaders: req.query.useHeaders,
+        isUseHeaders: req.query.useHeaders === 'true'
       });
     }
     res.status(200).json(data);
