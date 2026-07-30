@@ -2,78 +2,78 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/scratch.mjs",
+      "src": "api/scratch.js",
       "use": "@vercel/node"
     },
     {
-      "src": "api/github.mjs",
+      "src": "api/github.js",
       "use": "@vercel/node"
     },
     {
-      "src": "api/penguinmod.mjs",
+      "src": "api/penguinmod.js",
       "use": "@vercel/node"
     },
     {
-      "src": "api/url.mjs",
+      "src": "api/url.js",
       "use": "@vercel/node"
     },
     {
-      "src": "api/telegram.mjs",
+      "src": "api/telegram.js",
       "use": "@vercel/node"
     },
     {
-      "src": "api/dash.mjs",
+      "src": "api/dash.js",
       "use": "@vercel/node"
     },
     {
-      "src": "api/dashAvatar.mjs",
+      "src": "api/dashAvatar.js",
       "use": "@vercel/node"
     },
     {
-      "src": "api/telegramImg.mjs",
+      "src": "api/telegramImg.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/scratch/(.*)",
-      "dest": "/api/scratch.mjs?path=$1"
+      "dest": "/api/scratch.js?path=$1"
     },
     {
       "src": "/github/(.*)",
-      "dest": "/api/github.mjs?path=$1"
+      "dest": "/api/github.js?path=$1"
     },
     {
       "src": "/penguinmod/(.*)",
-      "dest": "/api/penguinmod.mjs?path=$1"
+      "dest": "/api/penguinmod.js?path=$1"
     },
     {
       "src": "/other/(.*)",
-      "dest": "/api/url.mjs?url=$1"
+      "dest": "/api/url.js?url=$1"
     },
     {
       "src": "/tg/(.*)",
-      "dest": "/api/telegram.mjs?path=$1"
+      "dest": "/api/telegram.js?path=$1"
     },
     {
       "src": "/dash/(.*)",
-      "dest": "/api/dash.mjs?path=$1"
+      "dest": "/api/dash.js?path=$1"
     },
     {
       "src": "/dashImage/(.*)",
-      "dest": "/api/dashAvatar.mjs?path=$1"
+      "dest": "/api/dashAvatar.js?path=$1"
     },
     {
       "src": "/tgImg/(.*)",
-      "dest": "/api/telegramImg.mjs?path=$1"
+      "dest": "/api/telegramImg.js?path=$1"
     },
     {
       "src": "/telegram/(.*)",
-      "dest": "/api/telegram.mjs?path=$1"
+      "dest": "/api/telegram.js?path=$1"
     },
     {
       "src": "/telegramImg/(.*)",
-      "dest": "/api/telegramImg.mjs?path=$1"
+      "dest": "/api/telegramImg.js?path=$1"
     }
   ]
 }
