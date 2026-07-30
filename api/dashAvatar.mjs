@@ -9,7 +9,7 @@ export default async (req, res) => {
   }
 
   try {
-    const url = `https://dashblocks-server.vercel.app/${path.replace(/^\//, '')}`;
+    const url = `https://api.dashblocks.org/${path.replace(/^\//, '')}`;
     const response = await fetch(url);
 
     if (!response.ok) {
