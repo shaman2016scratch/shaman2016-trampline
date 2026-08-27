@@ -9,7 +9,7 @@
     "node-fetch": "^3.3.1"
   },
   "devDependencies": {
-    "@vercel/node": "^5.5.16"
+    "@vercel/node": "^7.0.0"
   },
   "engines": {
     "node": "24.x"
