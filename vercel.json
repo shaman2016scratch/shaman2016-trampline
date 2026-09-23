@@ -32,12 +32,20 @@
     {
       "src": "api/telegramImg.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "api/raw-github.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/scratch/(.*)",
       "dest": "/api/scratch.js?path=$1"
+    },
+    {
+      "src": "/github/raw/(.*)",
+      "dest": "/api/raw-github.js?path=$1"
     },
     {
       "src": "/github/(.*)",
