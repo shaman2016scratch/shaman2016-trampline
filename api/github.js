@@ -16,7 +16,7 @@ export default async (req, res) => {
 
     if (!response.ok) {
       return res.status(response.status).json({
-        error: `Scratch API error: ${response.statusText}`,
+        error: `Github API error: ${response.statusText}`,
         status: response.status,
         requestedPath: path
       });
