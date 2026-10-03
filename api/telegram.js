@@ -1,4 +1,9 @@
 import fetch from 'node-fetch';
+import metadata from "./lib/metadata.js";
+
+const proxy = {
+  url: metadata.urls.tgapi
+}
 
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,7 +24,7 @@ export default async (req, res) => {
 
   try {
     const basePath = path.replace(/^\//, '');
-    const url = `https://api.telegram.org/${basePath}`;
+    const url = `${proxy.url}${basePath}`;
     const finalUrl = queryParams.toString()
       ? `${url}?${queryParams.toString()}`
       : url;
