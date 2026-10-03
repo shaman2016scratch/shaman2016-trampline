@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import metadata from "./lib/metadata.js";
 
 const proxy = {
-  url: metadata.urls.dashapi
+  url: metadata.urls.ghapi
 }
 
 export default async (req, res) => {
