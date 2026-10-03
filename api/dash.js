@@ -1,4 +1,9 @@
 import fetch from 'node-fetch';
+import metadata from "./lib/metadata.js";
+
+const proxy = {
+  url: metadata.urls.dashapi
+}
 
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,7 +16,7 @@ export default async (req, res) => {
   }
 
   try {
-    const url = `https://api.dashblocks.org/${path.replace(/^\//, '')}`;
+    const url = `${proxy.url}${path.replace(/^\//, '')}`;
     const response = await fetch(url);
 
     if (!response.ok) {
